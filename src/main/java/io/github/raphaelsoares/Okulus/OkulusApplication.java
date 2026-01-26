@@ -1,4 +1,4 @@
-package io.github.Raphael_Spares.Okulus;
+package io.github.raphaelsoares.Okulus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
