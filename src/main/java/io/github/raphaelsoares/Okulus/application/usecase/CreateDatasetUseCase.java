@@ -15,14 +15,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CreateDatasetUseCase {
 
-
     private final DatasetFactory datasetFactory;
     private final DatasetRepository datasetRepository;
     private final QuerySchemaAnalyzer querySchemaAnalyzer;
 
     public void execute(CreateDatasetCommand cmd) {
         List<ColumnDefinition> columns = querySchemaAnalyzer.extractColumns(cmd.sqlTemplate(), cmd.datasourceId());
-        Dataset dataset = DatasetFactory.create(cmd.name(), cmd.sqlTemplate(), cmd.datasourceId(), columns, cmd.parameters());
+        Dataset dataset = datasetFactory.create(cmd.name(), cmd.sqlTemplate(), cmd.datasourceId(), columns, cmd.parameters());
         datasetRepository.save(dataset);
     }
 

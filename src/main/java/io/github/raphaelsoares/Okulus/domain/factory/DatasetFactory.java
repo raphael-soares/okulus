@@ -8,17 +8,19 @@ import io.github.raphaelsoares.Okulus.domain.service.QuerySchemaAnalyzer;
 import io.github.raphaelsoares.Okulus.domain.valueobject.ColumnDefinition;
 import io.github.raphaelsoares.Okulus.domain.valueobject.Id;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @RequiredArgsConstructor
+@Service
 public class DatasetFactory {
 
 
     private final QuerySchemaAnalyzer querySchemaAnalyzer;
 
 
-    public static Dataset create(String name, SqlTemplate template, Id databaseId, List<ColumnDefinition> columns, List<ParameterDefinition> parameters) {
+    public  Dataset create(String name, SqlTemplate template, Id databaseId, List<ColumnDefinition> columns, List<ParameterDefinition> parameters) {
         return new Dataset(null, name, databaseId, template, parameters, columns);
     }
 }

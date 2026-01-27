@@ -10,15 +10,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class QueryAnalyzeUseCase {
 
-
     private final QuerySchemaAnalyzer querySchemaAnalyzer;
 
 
     public QueryAnalysisDto excecute(QueryAnalyzeCommand cmd) {
-
-
-
-
-
+        var columns = querySchemaAnalyzer.extractColumns(cmd.sqlTemplate(), cmd.datasourceId());
+        return new QueryAnalysisDto(columns);
     }
 }

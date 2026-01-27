@@ -1,6 +1,6 @@
 package io.github.raphaelsoares.Okulus.domain.valueobject;
 
-import io.github.Raphael_Spares.Okulus.domain.exception.InvalidSortingException;
+import io.github.raphaelsoares.Okulus.domain.exception.DomainValidationException;
 
 public class Sorting {
     private final String column;
@@ -8,7 +8,7 @@ public class Sorting {
 
     public Sorting(String column, SortDirection direction) {
         if (column == null || column.isBlank())
-            throw new InvalidSortingException("Coluna de " + "ordenação obrigatória");
+            throw new DomainValidationException("Coluna de ordenação obrigatória");
         this.column = column;
         this.direction = direction != null ? direction : SortDirection.ASC;
     }
